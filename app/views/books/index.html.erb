@@ -1,5 +1,25 @@
-<h1>New book</h1>
+<h1>Books</h1>
+<% @books.each do |book| %>
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>Body</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= book.title %></td>
+				<td><%= book.body %></td>
+				<td><%= link_to "Show", books_path %></td>
+				<td><%= link_to "Edit", books_path %></td>
+				<td><%= link_to "Destroy", books_path %></td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>
 
+<h2>New book</h2>
 <%= form_for(@book) do |f| %>
 	<h4>Title</h4>
 	<%= f.text_field :title %>

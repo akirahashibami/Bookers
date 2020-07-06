@@ -1,6 +1,10 @@
-<h3><strong>Title:</strong> <%= @book.title %></h3>
-<h3><strong>Body:</strong> <%= @book.body %></h3>
+<p class="show-calamn"><strong>Title:</strong> <%= @book.title %></p>
+<p class="show-calamn"><strong>Body:</strong> <%= @book.body %></p>
 
-<p>
+<p class="link_box">
 	<%= link_to "Edit", edit_book_path(@book.id) %> | <%= link_to "Back", books_path %>
+</p>
+
+<p id="notice">
+	<%= notice %>
 </p>

@@ -1,23 +1,23 @@
 <h1>Books</h1>
-<% @books.each do |book| %>
-	<table>
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Body</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><%= book.title %></td>
-				<td><%= book.body %></td>
-				<td><%= link_to "Show", book_path(book.id) %></td>
-				<td><%= link_to "Edit", edit_book_path(book.id) %></td>
-				<td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
-			</tr>
-		</tbody>
-	</table>
-<% end %>
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Body</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @books.each do |book| %>
+		<tr>
+			<td><%= book.title %></td>
+			<td><%= book.body %></td>
+			<td><%= link_to "Show", book_path(book.id) %></td>
+			<td><%= link_to "Edit", edit_book_path(book.id) %></td>
+			<td><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
 
 
 <h2>New book</h2>
@@ -34,9 +34,9 @@
 
 <%= form_for(@book) do |f| %>
 
-	<h4>Title</h4>
-	<%= f.text_field :title %>
-	<h4>Body</h4>
-	<%= f.text_field :body %>
-	<%= f.submit "Create Book" %>
+	<p class="book_form">Title</p>
+	<div class="field"><%= f.text_field :title %></div>
+	<p class="book_form">Body</p>
+	<div class="field"><%= f.text_area :body %></div>
+	<div class="action"><%= f.submit "Create Book" %></div>
 <% end %>

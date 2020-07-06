@@ -1,5 +1,17 @@
 <h1>Editing Book</h1>
 <%= form_for(@book) do |f| %>
+
+	<% if @book.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@book.errors.count, "eroor") %>errors prohibited this book from being saved:</h2>
+			<ul>
+				<% @book.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
 	<p class="book_form">Title</h4>
 	<div class="field"><%= f.text_field :title %></div>
 	<p class="book_form">Body</p>
